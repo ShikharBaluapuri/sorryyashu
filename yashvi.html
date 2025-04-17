@@ -1,0 +1,68 @@
+import math
+import time
+import sys
+import os
+
+# Terminal clear function
+def clear():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+# Function to generate heart using math
+def heart_function(x, y):
+    return (x**2 + y**2 - 1)**3 - x**2 * y**3
+
+# Function to draw the heart
+def draw_heart(message, delay=0.05):
+    scale_x = 0.05
+    scale_y = 0.1
+    width = 60
+    height = 30
+
+    output = ""
+
+    for y in range(int(1.5 * height), -height, -1):
+        for x in range(-width, width):
+            x_scaled = x * scale_x
+            y_scaled = y * scale_y
+            equation = heart_function(x_scaled, y_scaled)
+
+            if equation <= 0:
+                char = message[(x - y) % len(message)]
+                output += f"\033[91m{char}\033[0m"
+            else:
+                output += " "
+        output += "\n"
+
+    print(output)
+
+# Function to animate the heart with changing message
+def apology_animation():
+    messages = [
+        "I'm Sorry 💔",
+        "Forgive Me 😞",
+        "I Miss You 🥺",
+        "Let's Fix This 💖",
+        "Please? 🙏",
+        "I'm Sorry 💔"
+    ]
+
+    for msg in messages:
+        clear()
+        draw_heart(msg.center(20, ' '))
+        time.sleep(1)
+
+    final_scene()
+
+# Dramatic final message
+def final_scene():
+    clear()
+    for i in range(3):
+        print("\n" * 5)
+        print("\033[95m" + "I just want to say...".center(80) + "\033[0m")
+        time.sleep(1)
+
+    print("\033[92m" + "\n\n" + "I'm truly sorry. I mean it. 💚".center(80) + "\033[0m")
+    print("\n" * 2)
+    time.sleep(3)
+
+apology_animation()
