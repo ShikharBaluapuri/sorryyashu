@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>I'm Sorry Yashu 💔</title>
   <style>
-    /* Overall body styling */
     body {
       margin: 0;
       padding: 0;
@@ -18,7 +17,6 @@
       position: relative;
     }
 
-    /* Starry background animation */
     .stars {
       position: absolute;
       top: 0;
@@ -31,15 +29,10 @@
     }
 
     @keyframes moveStars {
-      from {
-        background-position: 0 0;
-      }
-      to {
-        background-position: -10000px 5000px;
-      }
+      from { background-position: 0 0; }
+      to { background-position: -10000px 5000px; }
     }
 
-    /* Title and apology message styling */
     h1 {
       font-size: 3em;
       color: #ff7eb3;
@@ -47,16 +40,26 @@
       letter-spacing: 2px;
     }
 
-    .message {
-      font-size: 1.5em;
-      color: #eee;
-      margin: 2em 0;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+    .typewriter {
+      font-size: 1.2em;
+      width: 80%;
+      max-width: 600px;
+      margin: 2em auto;
+      border-right: 3px solid #ff4b2b;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: typing 4s steps(40) 1s forwards, blink 0.75s step-end infinite;
     }
 
-    /* Button styling */
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
     button {
       padding: 15px 30px;
       font-size: 1.2em;
@@ -73,34 +76,6 @@
       transform: scale(1.1);
     }
 
-    /* Typing effect for the apology */
-    .typewriter {
-      font-size: 1.2em;
-      width: 80%;
-      max-width: 600px;
-      margin: 0 auto;
-      border-right: 3px solid #ff4b2b;
-      white-space: nowrap;
-      overflow: hidden;
-      animation: typing 4s steps(40) 1s forwards, blink 0.75s step-end infinite;
-    }
-
-    @keyframes typing {
-      from {
-        width: 0;
-      }
-      to {
-        width: 100%;
-      }
-    }
-
-    @keyframes blink {
-      50% {
-        border-color: transparent;
-      }
-    }
-
-    /* Floating heart animation */
     .heart {
       position: absolute;
       width: 30px;
@@ -120,48 +95,28 @@
       border-radius: 50%;
     }
 
-    .heart::before {
-      top: -10px;
-      left: 0;
-    }
-
-    .heart::after {
-      left: -10px;
-      top: 0;
-    }
+    .heart::before { top: -10px; left: 0; }
+    .heart::after { left: -10px; top: 0; }
 
     @keyframes floatHeart {
-      0% {
-        transform: translateY(100vh) rotate(45deg);
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-10vh) rotate(45deg);
-        opacity: 0;
-      }
+      0% { transform: translateY(100vh) rotate(45deg); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-10vh) rotate(45deg); opacity: 0; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Starry Background -->
   <div class="stars"></div>
 
-  <!-- Main Content -->
-  <div>
-    <h1>I'm Sorry Yashu 💔</h1>
-    <p class="typewriter">
-      Hey Yashvi, I messed up. I'm really really sorry for whatever hurt you.<br />
-      You mean the world to me, and I just want to make things right again.<br />
-      Please forgive this silly wolf 🐺.
-    </p>
-    <button onclick="alert('Yay! You forgave me 😭💘')">Forgive me, Yashu?</button>
-  </div>
+  <h1>I'm Sorry Yashu 💔</h1>
+  <p class="typewriter">
+    Hey Yashvi, I messed up. I'm really really sorry for whatever hurt you.<br />
+    You mean the world to me, and I just want to make things right again.<br />
+    Please forgive this silly wolf 🐺.
+  </p>
+  <button onclick="alert('Yay! You forgave me 😭💘')">Forgive me, Yashu?</button>
 
-  <!-- Floating hearts -->
   <script>
     function createHeart() {
       const heart = document.createElement("div");
@@ -169,12 +124,10 @@
       heart.style.left = Math.random() * 100 + "vw";
       heart.style.animationDuration = 5 + Math.random() * 5 + "s";
       document.body.appendChild(heart);
-      setTimeout(() => {
-        heart.remove();
-      }, 10000);
+      setTimeout(() => { heart.remove(); }, 10000);
     }
     setInterval(createHeart, 300);
   </script>
-  
+
 </body>
 </html>
