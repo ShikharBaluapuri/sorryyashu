@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -111,10 +111,7 @@
 
   <h1>I'm Sorry Yashu 💔</h1>
   <p class="typewriter">
-    Hey Yashvi, I messed up. I'm really really sorry for whatever hurt you.<br />
-    You mean the world to me, and I just want to make things right again.<br />
-    Please forgive this silly wolf 🐺.
-  </p>
+    Hi Yashu I am Truly sorry for how i acted can u pls forgive me i truly love you bohot bohot zyaada i know ive made a lot of mistakes and i promise u ill do better
   <button onclick="alert('Yay! You forgave me 😭💘')">Forgive me, Yashu?</button>
 
   <script>
